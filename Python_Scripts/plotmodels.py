@@ -8,7 +8,7 @@ df_sarima = pd.read_csv("C:/Users/UX530/Desktop/TFM-GIT/Datasets_Files/sarimax_f
 df_prophet = pd.read_csv("C:/Users/UX530/Desktop/TFM-GIT/Datasets_Files/prophet_forecast_2.csv", index_col=0, parse_dates=True)
 df_LGB = pd.read_csv('C:/Users/UX530/Desktop/TFM-GIT/Datasets_Files/ts_LGB.csv', delimiter = ';' , index_col=0, parse_dates=True)
 df_RF = pd.read_csv('C:/Users/UX530/Desktop/TFM-GIT/Datasets_Files/ts_RF.csv', delimiter = ';' , index_col=0, parse_dates=True)
-
+df_LGB_sin_outliers = pd.read_csv('C:/Users/UX530/Desktop/TFM-GIT/Datasets_Files/ts_LGB_sin_outliers.csv', delimiter = ';' , index_col=0, parse_dates=True)
 df_RF = df_RF.groupby('Fecha de solicitud')['Prediccion_Numero_Ampliaciones_RF'].sum().reset_index()
 
 #print(df_agrupado)
@@ -21,6 +21,7 @@ plt.plot(df_arima["pred"], label="ARIMA", linestyle="--", color="blue")
 plt.plot(df_sarima["pred"], label="SARIMA", linestyle="--", color="green")
 plt.plot(df_prophet["yhat"], label="Prophet", linestyle="--", color="red")
 plt.plot(df_LGB["Prediccion_Numero_Ampliaciones"], label="LGB", linestyle="--", color="purple")
+plt.plot(df_LGB_sin_outliers["Número de ampliaciones"], label="LGB", linestyle="--", color="skyblue")
 plt.plot(df_RF['Fecha de solicitud'], df_RF["Prediccion_Numero_Ampliaciones_RF"], label="Random Forest", linestyle="--", color="orange")
 
 # Intervalos de confianza (opcional)

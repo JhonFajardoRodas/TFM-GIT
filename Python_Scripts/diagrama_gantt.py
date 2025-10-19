@@ -31,9 +31,13 @@ for i, task in enumerate(df['Tarea']):
     ax.barh(task, (df['Fin'][i] - df['Inicio'][i]).days, left=df['Inicio'][i], color='skyblue')
 
 # Configurar el formato del eje x
-ax.set_xlabel('Fecha')
-ax.set_ylabel('Tareas')
-ax.set_title('Diagrama de Gantt')
+
+ax.set_xlabel('Fecha', fontsize=18)
+ax.set_ylabel('Tareas', fontsize=18)
+ax.set_title('Diagrama de Gantt', fontsize=20)
+ax.tick_params(axis='x', labelsize=18)
+ax.tick_params(axis='y', labelsize=18)
+
 plt.xticks(rotation=45)
 plt.tight_layout()
 
